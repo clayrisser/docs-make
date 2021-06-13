@@ -8,7 +8,7 @@ export async function splitAll(
   outputPath: string,
   config: Config
 ) {
-  const results: HashMap<Results> = {};
+  const resultsMap: HashMap<Results> = {};
   await Promise.all(
     inputPaths.map(async (inputPath: string) => {
       const body = (await fs.readFile(inputPath)).toString();
@@ -18,10 +18,10 @@ export async function splitAll(
         body,
         config
       );
-      results[inputPath] = results;
+      resultsMap[inputPath] = results;
     })
   );
-  return results;
+  return resultsMap;
 }
 
 export async function split(
