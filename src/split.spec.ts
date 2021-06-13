@@ -29,7 +29,11 @@ preprocess: true
 `
       },
       { format: 'md' },
-      { format: 'rst' },
+      {
+        format: 'rst',
+        match: `
+.. rst::example`
+      },
       { format: 'md' }
     ]);
   });
