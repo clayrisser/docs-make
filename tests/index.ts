@@ -1,4 +1,4 @@
-describe('make-docs', () => {
+describe('docs-make', () => {
   it('should work', async () => {
     expect(true).toBe(true);
   });

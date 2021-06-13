@@ -1,15 +1,14 @@
 {
-  "name": "make-docs",
-  "version": "0.0.1",
+  "name": "docs-make",
+  "version": "0.0.2",
   "description": "utility scripts for make docs",
-  "private": true,
   "sideEffects": false,
   "keywords": [
-    "make-docs"
+    "docs-make"
   ],
-  "homepage": "https://github.com/clayrisser/make-docs",
+  "homepage": "https://github.com/clayrisser/docs-make",
   "bugs": {
-    "url": "https://github.com/clayrisser/make-docs/issues",
+    "url": "https://github.com/clayrisser/docs-make/issues",
     "email": "email@clayrisser.com"
   },
   "license": "MIT",
@@ -27,11 +26,11 @@
   "module": "es/index.js",
   "main": "lib/index.js",
   "bin": {
-    "make-docs": "bin/makeDocs.js"
+    "docs-make": "bin/makeDocs.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/clayrisser/make-docs"
+    "url": "https://github.com/clayrisser/docs-make"
   },
   "scripts": {
     "build": "make -s build",
