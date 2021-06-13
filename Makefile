@@ -13,7 +13,6 @@ MAJESTIC ?= node_modules/.bin/majestic
 PRETTIER ?= node_modules/.bin/prettier
 TMP_DIR ?= node_modules/.tmp
 TSC ?= node_modules/.bin/tsc
-WEBPACK ?= node_modules/.bin/webpack
 COLLECT_COVERAGE_FROM := ["src/**/*.{js,jsx,ts,tsx}"]
 
 .PHONY: all
@@ -81,7 +80,6 @@ es/index.js:
 lib/index.js:
 	@$(MAKE) -s $(ACTION)/^build
 $(ACTION)/^build:
-	@$(WEBPACK)
 	@$(BABEL) --env-name umd src -d lib --extensions '.js,.jsx,.ts,.tsx' --source-maps
 	@$(BABEL) --env-name esm src -d es --extensions '.js,.jsx,.ts,.tsx' --source-maps
 	@$(TSC) -p tsconfig.app.json -d --emitDeclarationOnly
@@ -174,5 +172,4 @@ CACHE_ENVS += \
 	MAJESTIC \
 	PRETTIER \
 	TMP_DIR \
-	TSC \
-	WEBPACK
+	TSC
