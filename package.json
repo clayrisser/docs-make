@@ -1,6 +1,6 @@
 {
   "name": "docs-make",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "utility scripts for make docs",
   "sideEffects": false,
   "keywords": [
@@ -26,7 +26,7 @@
   "module": "es/index.js",
   "main": "lib/index.js",
   "bin": {
-    "docs-make": "bin/makeDocs.js"
+    "docs-make-split": "bin/split.js"
   },
   "repository": {
     "type": "git",

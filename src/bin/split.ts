@@ -3,6 +3,8 @@ import path from 'path';
 import { defaultConfig } from '~/config';
 import { splitAll, writeSplit } from '~/split';
 
+const logger = console;
+
 (async () => {
   if (process.argv.length < 3) {
     throw new Error('missing output path');
@@ -23,4 +25,4 @@ import { splitAll, writeSplit } from '~/split';
     splitJsonPath,
     JSON.stringify(Object.assign(splitJson, results), null, 2)
   );
-})();
+})().catch(logger.error);
