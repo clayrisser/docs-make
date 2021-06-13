@@ -11,8 +11,7 @@ export async function splitAll(
   const results: HashMap<Results> = {};
   await Promise.all(
     inputPaths.map(async (inputPath: string) => {
-      const f = await fs.readFile(inputPath);
-      const body = f.toString();
+      const body = (await fs.readFile(inputPath)).toString();
       const results = await split(
         path.resolve(process.cwd(), inputPath),
         path.resolve(process.cwd(), outputPath, inputPath),
