@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { defaultConfig } from '~/config';
+import { markdownConfig } from '~/config';
 import { split } from '~/split';
 
 const rootPath = path.resolve(__dirname, '..');
@@ -13,7 +13,7 @@ describe('split()', () => {
       inputPath,
       outputPath,
       (await fs.readFile(inputPath)).toString(),
-      defaultConfig
+      markdownConfig
     );
     expect(results.inputPath).toBe(inputPath);
     expect(results.outputPath).toBe(outputPath);
