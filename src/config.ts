@@ -30,6 +30,6 @@ export const rstConfig: Config = {
     }
   },
   defaultOptions: {
-    preprocess: false
+    preprocess: true
   }
 };
