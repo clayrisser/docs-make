@@ -1,6 +1,6 @@
 {
   "name": "docs-make",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "utility scripts for make docs",
   "sideEffects": false,
   "keywords": [

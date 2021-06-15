@@ -8,6 +8,8 @@ import path from 'path';
   let body = (await fs.readFile(filePath)).toString();
   const $ = load(body);
   $('body .document .body .clearer').replaceWith('');
-  body = ($('body .document .body').html() || body).trim();
+  body = `
+${($('body .document .body').html() || body).trim()}
+`;
   await fs.writeFile(filePath, body);
 })();
