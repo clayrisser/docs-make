@@ -11,20 +11,28 @@ const logger = console;
   } else if (process.argv.length < 4) {
     throw new Error('missing input paths');
   }
-  const [, , outputPath, configPath] = process.argv;
+  const [, , outputPath] = process.argv;
+  const configPath =
+    process.argv.length > 4 ? process.argv[process.argv.length - 1] : null;
   let config = markdownConfig;
   if (configPath === 'rst') {
     config = rstConfig;
   } else if (configPath && configPath.length && configPath.indexOf('.') > -1) {
-    const extension = configPath.replace(/^.*\./g, '');
     const fullConfigPath = path.resolve(process.cwd(), configPath);
-    if (extension === 'js') {
-      config = await import(fullConfigPath);
-    } else {
-      config = await fs.readJSON(fullConfigPath);
+    if (await fs.pathExists(fullConfigPath)) {
+      try {
+        config = await import(fullConfigPath);
+      } catch (err) {
+        if (err.message.indexOf('Unknown file extension') <= -1) throw err;
+      }
     }
   }
-  const inputPaths = process.argv.slice(3).map((inputPath) => inputPath);
+  const inputPaths = process.argv
+    .slice(3)
+    .reduce((inputPaths: string[], inputPath: string) => {
+      if (inputPath !== configPath) inputPaths.push(inputPath);
+      return inputPaths;
+    }, []);
   const results = await writeSplit(
     await splitAll(inputPaths, outputPath, config)
   );

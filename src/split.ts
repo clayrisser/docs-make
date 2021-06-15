@@ -82,7 +82,7 @@ export async function split(
     format: extension,
     path: path.resolve(
       outputPath,
-      results.parts.length.toString().padStart(4, '0')
+      `${results.parts.length.toString().padStart(4, '0')}.${extension}`
     ),
     ...config.defaultOptions
   });
