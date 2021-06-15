@@ -7,6 +7,7 @@ import path from 'path';
   const filePath = path.resolve(process.cwd(), process.argv[2]);
   let body = (await fs.readFile(filePath)).toString();
   const $ = load(body);
-  body = $('body .document .body section').html() || body;
+  $('body .document .body .clearer').replaceWith('');
+  body = ($('body .document .body').html() || body).trim();
   await fs.writeFile(filePath, body);
 })();
