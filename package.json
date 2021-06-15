@@ -1,6 +1,6 @@
 {
   "name": "docs-make",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "utility scripts for make docs",
   "sideEffects": false,
   "keywords": [
@@ -26,6 +26,7 @@
   "module": "es/index.js",
   "main": "lib/index.js",
   "bin": {
+    "docs-make-clean-pandoc": "bin/cleanPandoc.js",
     "docs-make-split": "bin/split.js"
   },
   "repository": {
