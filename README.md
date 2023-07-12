@@ -4,6 +4,8 @@
 
 > utility scripts for make docs
 
+![](assets/docs-make.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 ## Installation
